@@ -3,8 +3,8 @@ package dataManagement;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
-import BasicClasses.Faculty;
-import BasicClasses.GradSchool;
+import basicClasses.Faculty;
+import basicClasses.GradSchool;
 
 public class LoadFaculty {
 

@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import BasicClasses.Degree;
-import BasicClasses.GradSchool;
-import BasicClasses.Semester;
-import BasicClasses.Student;
+import basicClasses.Degree;
+import basicClasses.GradSchool;
+import basicClasses.Semester;
+import basicClasses.Student;
 import dataManagement.LoadDegree;
 import dataManagement.LoadGradSchool;
 import dataManagement.LoadSemester;

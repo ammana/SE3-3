@@ -1,4 +1,4 @@
-package BasicClasses;
+package basicClasses;
 
 public class Faculty
 {
@@ -8,7 +8,7 @@ public class Faculty
 	private GradSchool gradSchool;
 	private String degree;
 	private String title;
-	private String DaysToTeach;
+	private String daysToTeach;
 	private int maxLoadFall;
 	private int maxLoadSpring;
 	private int maxLoadSummer;
@@ -37,7 +37,7 @@ public class Faculty
 		this.gradSchool = gradSchool;
 		this.degree = degree;
 		this.title = title;
-		DaysToTeach = daysToTeach;
+		this.daysToTeach = daysToTeach;
 		this.maxLoadFall = maxLoadFall;
 		this.maxLoadSpring = maxLoadSpring;
 		this.maxLoadSummer = maxLoadSummer;
@@ -117,14 +117,14 @@ public class Faculty
 	 * @return the daysToTeach
 	 */
 	public String getDaysToTeach() {
-		return DaysToTeach;
+		return daysToTeach;
 	}
 
 	/**
 	 * @param daysToTeach the daysToTeach to set
 	 */
 	public void setDaysToTeach(String daysToTeach) {
-		DaysToTeach = daysToTeach;
+		this.daysToTeach = daysToTeach;
 	}
 
 	/**
