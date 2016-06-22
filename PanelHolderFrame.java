@@ -5,6 +5,7 @@
  */
 package gui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -19,12 +20,15 @@ public class PanelHolderFrame extends javax.swing.JFrame {
     public PanelHolderFrame() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         JPanel panel = new LogInPanel(this);
-        setSize(650,470);
+        setSize(800,470);
         setTitle("Login Page");
         getContentPane().removeAll();
         getContentPane().add(panel);
         getContentPane().revalidate();
+       // pack();
         
+        ImageIcon img = new ImageIcon("data/OC.png");
+        setIconImage(img.getImage());
     }
 
     /**
