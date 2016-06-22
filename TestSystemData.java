@@ -64,7 +64,7 @@ public class TestSystemData {
 			String courseCode = entry.getKey();
 			Course course = entry.getValue();			
 			System.out.println(courseCode + ", " + course.getCourseName() + ", " + course.getCourseDescription() + ", "
-					+ course.getCourseHours() + ", " + course.getCourseCap() + ", " + course.isOfferedInFall() + ", "
+					+ course.getCourseHours()+ ", " + course.getCourseCap()+ ", " + course.isOfferedInFall() + ", "
 					+ course.isOfferedInSpring() + ", " + course.isOfferedInSummer() + ", " + course.getPrerequisites()
 					+ ", " + course.getTeachers());
 			

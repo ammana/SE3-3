@@ -69,7 +69,7 @@ public static void main(String[] args) {
 			Course course = entry.getValue();
 			
 			System.out.println(courseCode + ", " + course.getCourseName() + ", " + course.getCourseDescription() + ", "
-					+ course.getCourseHours() + ", " + course.getCourseCap() + ", " + course.isOfferedInFall() + ", "
+					+ course.getCourseHours() + ", " + course.getCourseCap()+ ", " + course.isOfferedInFall() + ", "
 					+ course.isOfferedInSpring() + ", " + course.isOfferedInSummer() + ", " + course.getPrerequisites()
 					+ ", " + course.getTeachers());
 		}
