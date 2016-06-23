@@ -14,7 +14,7 @@ import yetToUse.Schedule;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class ScheduleGenerate extends javax.swing.JPanel {
     JFrame  panelHolder;
