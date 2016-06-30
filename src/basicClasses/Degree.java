@@ -1,4 +1,4 @@
-package basicClasses;
+package BasicClasses;
 
 public class Degree {
 

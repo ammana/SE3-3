@@ -1,4 +1,4 @@
-package basicClasses;
+package BasicClasses;
 
 /**
  * The place where education is taught.

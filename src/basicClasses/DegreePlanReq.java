@@ -1,6 +1,6 @@
-package basicClasses;
+package BasicClasses;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 
 public class DegreePlanReq {
 	
@@ -8,7 +8,7 @@ public class DegreePlanReq {
 	private String description;
 	private int hours;
 	private String type;
-	private HashSet<Course> courses;
+	private ArrayList<Course> courses;
 
 	/**
 	 * 
@@ -23,7 +23,7 @@ public class DegreePlanReq {
 	 * @param type
 	 * @param courses
 	 */
-	public DegreePlanReq(Degree degree, String description, int hours, String type, HashSet<Course> courses) {
+	public DegreePlanReq(Degree degree, String description, int hours, String type, ArrayList<Course> courses) {
 		this.degree = degree;
 		this.description = description;
 		this.hours = hours;
@@ -90,14 +90,14 @@ public class DegreePlanReq {
 	/**
 	 * @return the courses
 	 */
-	public HashSet<Course> getCourses() {
+	public ArrayList<Course> getCourses() {
 		return courses;
 	}
 
 	/**
 	 * @param courses the courses to set
 	 */
-	public void setCourses(HashSet<Course> courses) {
+	public void setCourses(ArrayList<Course> courses) {
 		this.courses = courses;
 	}
 
