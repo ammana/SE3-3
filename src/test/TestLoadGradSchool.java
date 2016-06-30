@@ -3,7 +3,7 @@ package test;
 import java.util.HashMap;
 import java.util.Map;
 
-import BasicClasses.GradSchool;
+import basicClasses.GradSchool;
 import dataManagement.LoadGradSchool;
 
 public class TestLoadGradSchool {

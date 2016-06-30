@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import BasicClasses.GradSchool;
+import basicClasses.GradSchool;
 
 public class LoadGradSchool {
 	

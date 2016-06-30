@@ -4,8 +4,8 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import BasicClasses.Degree;
-import BasicClasses.GradSchool;
+import basicClasses.Degree;
+import basicClasses.GradSchool;
 
 public class LoadDegree {
 	HashMap<String, GradSchool> gradSchools;

@@ -3,7 +3,7 @@ package test;
 import java.util.HashMap;
 import java.util.Map;
 
-import BasicClasses.Semester;
+import basicClasses.Semester;
 import dataManagement.LoadSemester;
 
 public class TestLoadSemester {

@@ -3,9 +3,9 @@ package test;
 import java.util.HashMap;
 import java.util.Map;
 
-import BasicClasses.Course;
-import BasicClasses.Faculty;
-import BasicClasses.GradSchool;
+import basicClasses.Course;
+import basicClasses.Faculty;
+import basicClasses.GradSchool;
 import dataManagement.LoadCourse;
 import dataManagement.LoadFaculty;
 import dataManagement.LoadGradSchool;

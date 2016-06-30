@@ -5,9 +5,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import BasicClasses.DegreePlanReq;
-import BasicClasses.Course;
-import BasicClasses.Degree;
+import basicClasses.DegreePlanReq;
+import basicClasses.Course;
+import basicClasses.Degree;
+import java.util.HashSet;
 
 public class LoadDegreePlanReq {
 	HashMap<String, Degree> degrees;
@@ -59,8 +60,8 @@ public class LoadDegreePlanReq {
 		return degreePlanReqInfo;
 	}
 	
-	private ArrayList<Course> getCourses(Scanner line){
-		ArrayList<Course> courses = new ArrayList<Course>();
+	private HashSet<Course> getCourses(Scanner line){
+		HashSet<Course> courses = new HashSet<Course>();
 		String s = line.next();	
 		
 		if(!s.trim().startsWith("\"")){	

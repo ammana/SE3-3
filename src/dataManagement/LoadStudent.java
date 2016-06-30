@@ -3,9 +3,9 @@ package dataManagement;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
-import BasicClasses.Student;
-import BasicClasses.Degree;
-import BasicClasses.Semester;
+import basicClasses.Student;
+import basicClasses.Degree;
+import basicClasses.Semester;
 
 public class LoadStudent {
 
@@ -46,7 +46,7 @@ public class LoadStudent {
 				
 				if(major != null){//this will discard MSE.ECE, MSE.ENGMGT and multiple major					
 					student = new Student(id, major, graduatingSemester);
-					// student id is used as the “key”
+					// student id is used as the ï¿½keyï¿½
 					students.put(id, student);
 				}
 
@@ -60,6 +60,43 @@ public class LoadStudent {
 			e.printStackTrace();
 
 		}
+		return students;
+	}
+        
+        public HashMap<Integer, Student> loadFromCsv(String csvFilePath) throws Exception {
+		Student student;
+		
+			Scanner sc = new Scanner(new File(csvFilePath));
+			students = new HashMap<Integer, Student>();
+
+			// Skips first line which contains the column heading
+//			if (sc.hasNextLine()) {
+//				sc.nextLine();
+//				// System.out.println(sc.nextLine());
+//			}
+
+			while (sc.hasNextLine()) {
+				// System.out.println(sc.nextLine());
+				Scanner line = new Scanner(sc.nextLine());
+				line.useDelimiter(",");
+
+				Integer id = line.nextInt();
+				Degree major = degrees.get(line.next());
+				Semester graduatingSemester =  semesters.get(line.next());
+				
+				if(major != null){//this will discard MSE.ECE, MSE.ENGMGT and multiple major					
+					student = new Student(id, major, graduatingSemester);
+					// student id is used as the ï¿½keyï¿½
+					students.put(id, student);
+				}
+
+				//System.out.println(id+", "+ line.next()+", "+ line.next());
+
+				line.close();
+			}
+			sc.close();
+
+		
 		return students;
 	}
 

@@ -4,17 +4,17 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import BasicClasses.StudentCourse;
-import BasicClasses.Course;
-import BasicClasses.Semester;
-import BasicClasses.Student;
+import basicClasses.StudentCourse;
+import basicClasses.Course;
+import basicClasses.Semester;
+import basicClasses.Student;
 
 public class LoadStudentCourse {
 
-	HashMap<Integer, Student> students;
-	HashMap<String, Semester> semesters;
-	HashMap<String, Course> courses;
-	HashMap<String, StudentCourse> studentCourses;
+	private HashMap<Integer, Student> students;
+	private HashMap<String, Semester> semesters;
+	private HashMap<String, Course> courses;
+	private HashMap<String, StudentCourse> studentCourses;
 
 	/**
 	 * @param students
@@ -29,21 +29,24 @@ public class LoadStudentCourse {
 	}
 
 	public HashMap<String, StudentCourse> loadOnSystemStartUp() {
-		StudentCourse studentCurse;
+		StudentCourse studentCourse;
+                int num=0;
+                int num1=0;
 		try {
 			Scanner sc = new Scanner(new File("data/STC.DUMP.csv"));
 			studentCourses = new HashMap<String, StudentCourse>();
 
 			// Skips first line which contains the column heading
-			if (sc.hasNextLine()) {
-				sc.nextLine();
-				//System.out.println(sc.nextLine());
-			}
+//			if (sc.hasNextLine()) {
+//				sc.nextLine();
+//				System.out.println(sc.nextLine());
+//			}
 
 			while (sc.hasNextLine()) {
 				String nextLine = sc.nextLine();
-				//System.out.println("*"+nextLine);
 				Scanner line = new Scanner(nextLine);
+//                                ++num1;
+//				System.out.println("*"+num1+". "+nextLine);
 				line.useDelimiter(",");
 				
 				int i= line.nextInt();
@@ -54,12 +57,15 @@ public class LoadStudentCourse {
 				String grade = line.next();
 				
 				if(student != null && course != null){//ignoring invalid courses 						
-					studentCurse = new StudentCourse(student, course, courseName, semester, grade);
-					studentCourses.put(studentCurse.toString(), studentCurse);
+					studentCourse = new StudentCourse(student, course, courseName, semester, grade);
+//                                        ++num;
+//                                        System.out.println(num+". " +studentCourse.getStudent()+ ", " + studentCourse.getCourse()
+//                                        + ", " + studentCourse.getCourseName()+ ", " + studentCourse.getSemester()
+//                                        + ", " + studentCourse.getGrade());
+
+                                        studentCourses.put(studentCourse.toString(), studentCourse);
 				}
-				
-//				if(student==null)
-//					System.out.println("*"+i);					
+								
 				
 				line.close();
 			}
@@ -69,6 +75,45 @@ public class LoadStudentCourse {
 			e.printStackTrace();
 
 		}
+		return studentCourses;
+	}
+        
+	public HashMap<String, StudentCourse> loadFromCsv(String csvFilePath) throws Exception {
+		StudentCourse studentCurse;
+                    Scanner sc = new Scanner(new File(csvFilePath));
+                    studentCourses = new HashMap<String, StudentCourse>();
+
+                    // Skips first line which contains the column heading
+//                    if (sc.hasNextLine()) {
+//                            sc.nextLine();
+//                            //System.out.println(sc.nextLine());
+//                    }
+
+                    while (sc.hasNextLine()) {
+                            String nextLine = sc.nextLine();
+                            //System.out.println("*"+nextLine);
+                            Scanner line = new Scanner(nextLine);
+                            line.useDelimiter(",");
+
+                            int i= line.nextInt();
+                            Student student = students.get(i);
+                            Course course = courses.get(line.next());
+                            String courseName = getNextToken(line);
+                            Semester semester = semesters.get(line.next());
+                            String grade = line.next();
+
+                            if(student != null && course != null){//ignoring invalid courses 						
+                                    studentCurse = new StudentCourse(student, course, courseName, semester, grade);
+                                    studentCourses.put(studentCurse.toString(), studentCurse);
+                            }
+
+//				if(student==null)
+//					System.out.println("*"+i);					
+
+                            line.close();
+                    }
+                    sc.close();
+		
 		return studentCourses;
 	}
 	

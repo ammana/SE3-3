@@ -1,4 +1,4 @@
-package BasicClasses;
+package basicClasses;
 
 public class Student {
 

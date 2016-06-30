@@ -3,7 +3,7 @@ package test;
 import java.util.HashMap;
 import java.util.Map;
 
-import BasicClasses.University;
+import basicClasses.University;
 import dataManagement.LoadUniversity;
 
 public class TestLoadUniversity {

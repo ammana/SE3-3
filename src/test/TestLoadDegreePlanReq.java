@@ -3,11 +3,11 @@ package test;
 import java.util.HashMap;
 import java.util.Map;
 
-import BasicClasses.Course;
-import BasicClasses.Degree;
-import BasicClasses.DegreePlanReq;
-import BasicClasses.Faculty;
-import BasicClasses.GradSchool;
+import basicClasses.Course;
+import basicClasses.Degree;
+import basicClasses.DegreePlanReq;
+import basicClasses.Faculty;
+import basicClasses.GradSchool;
 import dataManagement.LoadCourse;
 import dataManagement.LoadDegree;
 import dataManagement.LoadDegreePlanReq;
@@ -69,7 +69,7 @@ public static void main(String[] args) {
 			Course course = entry.getValue();
 			
 			System.out.println(courseCode + ", " + course.getCourseName() + ", " + course.getCourseDescription() + ", "
-					+ course.getCreditHours() + ", " + course.getClassCap() + ", " + course.isOfferedInFall() + ", "
+					+ course.getCourseHours() + ", " + course.getCourseCap()+ ", " + course.isOfferedInFall() + ", "
 					+ course.isOfferedInSpring() + ", " + course.isOfferedInSummer() + ", " + course.getPrerequisites()
 					+ ", " + course.getTeachers());
 		}

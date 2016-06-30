@@ -3,8 +3,8 @@ package test;
 import java.util.HashMap;
 import java.util.Map;
 
-import BasicClasses.Faculty;
-import BasicClasses.GradSchool;
+import basicClasses.Faculty;
+import basicClasses.GradSchool;
 import dataManagement.LoadFaculty;
 import dataManagement.LoadGradSchool;
 

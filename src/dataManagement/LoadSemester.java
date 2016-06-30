@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import BasicClasses.Semester;
+import basicClasses.Semester;
 
 public class LoadSemester {
 	HashMap<String, Semester> semesters;

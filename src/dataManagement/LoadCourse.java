@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import BasicClasses.Course;
-import BasicClasses.Faculty;
+import basicClasses.Course;
+import basicClasses.Faculty;
 
 public class LoadCourse {
 	
@@ -23,7 +23,7 @@ public class LoadCourse {
 	public HashMap<String, Course> loadOnSystemStartUp() {
 		Course course;
 		try {
-			Scanner sc = new Scanner(new File("data/TestDataCourses.csv"));
+			Scanner sc = new Scanner(new File("data/TestDataCourses.csv"),"UTF-8");
 			courses = new HashMap<String, Course>();
 
 			// Skips first line which contains the column heading
