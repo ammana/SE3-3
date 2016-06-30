@@ -9,7 +9,7 @@ import java.util.HashSet;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class Section{
     public Course course;

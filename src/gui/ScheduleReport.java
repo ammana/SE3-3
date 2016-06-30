@@ -18,7 +18,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class ScheduleReport extends javax.swing.JPanel {
     JFrame  panelHolder;

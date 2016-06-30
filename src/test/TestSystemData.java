@@ -26,7 +26,7 @@ import java.util.Map;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class TestSystemData {
     static HashMap<String, GradSchool> gradSchools;

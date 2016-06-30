@@ -18,11 +18,11 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class CourseAddEdit extends javax.swing.JPanel {
     JFrame  panelHolder;
-    SystemData systemData;
+    SystemData systemData;	
     boolean isEdit;
     Course selectedCourse;
     int source;    

@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class HomePage extends javax.swing.JPanel {
     JFrame  panelHolder;

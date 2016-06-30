@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class CourseMaintainance extends javax.swing.JPanel {
     JFrame  panelHolder;

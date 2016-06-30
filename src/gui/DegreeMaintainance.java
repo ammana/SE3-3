@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class DegreeMaintainance extends javax.swing.JPanel {
     JFrame  panelHolder;

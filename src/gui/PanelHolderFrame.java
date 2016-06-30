@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class PanelHolderFrame extends javax.swing.JFrame {
 

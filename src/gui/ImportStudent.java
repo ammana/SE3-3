@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class ImportStudent extends javax.swing.JPanel {
     JFrame  panelHolder;

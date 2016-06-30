@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class LogInPanel extends javax.swing.JPanel {
     JFrame  panelHolder;
