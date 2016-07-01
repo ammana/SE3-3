@@ -23,8 +23,9 @@ public class SystemData {
     private HashMap<String, StudentCourse> studentCourses;
         
     private String currentUser;
-        
-	
+    private Schedule schedule;
+
+   	
     public void load() {
 		
 		System.out.println("-----------Loading GradSchool data-----------");
@@ -95,23 +96,24 @@ public class SystemData {
 		}
 		System.out.println("--------------------------------------------------");
 		
-//		System.out.println("-----------Loading Student data-----------");
-//		students = new LoadStudent(degrees, semesters).loadOnSystemStartUp();
-//		for (Map.Entry<Integer, Student> entry : students.entrySet()) {
-//			Student student = entry.getValue();
-//			System.out.println(student.getId()+ ", " + student.getMajor()+ ", " + student.getGradsemester());
-//		}
-//		System.out.println("-------------Student data loaded-----------------");
-//		
-//		System.out.println("-----------Loading StudentCourse data-----------");
-//		studentCourses = new LoadStudentCourse(students, semesters, courses).loadOnSystemStartUp();
-//		for (Map.Entry<String, StudentCourse> entry : studentCourses.entrySet()) {
-//			StudentCourse studentCourse = entry.getValue();
-//			System.out.println(studentCourse.getStudent()+ ", " + studentCourse.getCourse()
-//			+ ", " + studentCourse.getCourseName()+ ", " + studentCourse.getSemester()
-//					+ ", " + studentCourse.getGrade());
-//		}
-//		System.out.println("-------------StudentCourse data loaded-----------------");
+		System.out.println("-----------Loading Student data-----------");
+		students = new LoadStudent(degrees, semesters).loadOnSystemStartUp();
+		for (Map.Entry<Integer, Student> entry : students.entrySet()) {
+			Student student = entry.getValue();
+			System.out.println(student.getId()+ ", " + student.getMajor()+ ", " + student.getGradsemester());
+		}
+		System.out.println("-------------Student data loaded-----------------");
+		
+		System.out.println("-----------Loading StudentCourse data-----------");
+		studentCourses = new LoadStudentCourse(students, semesters, courses).loadOnSystemStartUp();
+		for (Map.Entry<String, StudentCourse> entry : studentCourses.entrySet()) {
+			StudentCourse studentCourse = entry.getValue();
+			System.out.println(studentCourse.getStudent()+ ", " + studentCourse.getCourse()
+			+ ", " + studentCourse.getCourseName()+ ", " + studentCourse.getSemester()
+					+ ", " + studentCourse.getGrade());
+		}
+		System.out.println("StudentCourses size= "+studentCourses.size());
+		System.out.println("-------------StudentCourse data loaded-----------------");
 		
 	}
 
@@ -186,6 +188,15 @@ public class SystemData {
     public void setCurrentUser(String currentUser) {
         this.currentUser = currentUser;
     }    
+    
+    public Schedule getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
+    }
+        
     
 
 }

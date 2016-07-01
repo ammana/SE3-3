@@ -6,8 +6,11 @@
 package gui;
 
 import basicClasses.Degree;
+import basicClasses.DegreePlanReq;
 import dataManagement.SystemData;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 
@@ -156,6 +159,13 @@ public class DegreeMaintainance extends javax.swing.JPanel {
         systemData.setDegrees(degrees);
         deleteComboBox.removeItem(selectedDegree);
         editComboBox.removeItem(selectedDegree);
+        Iterator<Map.Entry<String, DegreePlanReq>> it = systemData.getDegreePlanReqInfo().entrySet().iterator();
+        while (it.hasNext()){
+            DegreePlanReq degreePlanReq  = it.next().getValue();
+            if(degreePlanReq.getDegree().toString().equals(selectedDegree))
+                it.remove();
+        }
+        System.out.println(systemData.getDegreePlanReqInfo().size());
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed

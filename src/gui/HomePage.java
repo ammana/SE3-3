@@ -91,14 +91,54 @@ public class HomePage extends javax.swing.JPanel {
         });
         JMenuItem mntmNewMenuItem = new JMenuItem("Test Schedule");
         mnSchedule.add(mntmNewMenuItem);
+        mntmNewMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(systemData.getSchedule()==null){                    
+                    JOptionPane.showMessageDialog(null, "Please Genereate the Schedule first!");   
+                    return;
+                }
+                panelHolder.setTitle("Test Schedule");
+                panelHolder.getContentPane().removeAll();
+		panelHolder.getContentPane().add(new ScheduleTest(panelHolder, systemData));
+		panelHolder.getContentPane().revalidate();        
+            }
+        });
 
         JMenu mnReport = new JMenu("Report");
         menuBar.add(mnReport);
         JMenuItem mntmNewMenuItem_1 = new JMenuItem("Schedule Report");
         mnReport.add(mntmNewMenuItem_1);
+        mntmNewMenuItem_1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(systemData.getSchedule()==null){                    
+                    JOptionPane.showMessageDialog(null, "Please Genereate the Schedule first!");   
+                    return;
+                }
+                panelHolder.setTitle("Schedule Report");
+                panelHolder.getContentPane().removeAll();
+		panelHolder.getContentPane().add(new ScheduleReport(panelHolder, systemData));
+		panelHolder.getContentPane().revalidate();        
+            }
+        });
+        
         JMenuItem mntmNewMenuItem_2 = new JMenuItem("Student Report");
         mnReport.add(mntmNewMenuItem_2);
-
+        mntmNewMenuItem_2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(systemData.getSchedule()==null){                    
+                    JOptionPane.showMessageDialog(null, "Please Genereate the Schedule first!");   
+                    return;
+                }
+                panelHolder.setTitle("Student Report");
+                panelHolder.getContentPane().removeAll();
+		panelHolder.getContentPane().add(new StudentReport(panelHolder, systemData));
+		panelHolder.getContentPane().revalidate();        
+            }
+        });
+        
         JMenu mnImport = new JMenu("Import");
         menuBar.add(mnImport);
         JMenuItem mntmImportStudent = new JMenuItem("Import Student");
@@ -343,8 +383,7 @@ public class HomePage extends javax.swing.JPanel {
         panelHolder.getContentPane().removeAll();
         panelHolder.getContentPane().add(new CourseAddEdit(panelHolder, systemData,
                 true, systemData.getCourses().get(selectedCourseCode), 1));
-        panelHolder.getContentPane().revalidate();        
-        //panelHolder.pack();        
+        panelHolder.getContentPane().revalidate(); 
     }//GEN-LAST:event_editButtonActionPerformed
 
 

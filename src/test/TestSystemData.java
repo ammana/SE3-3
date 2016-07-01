@@ -19,6 +19,8 @@ import dataManagement.LoadDegreePlanReq;
 import dataManagement.LoadFaculty;
 import dataManagement.LoadGradSchool;
 import dataManagement.LoadSemester;
+import dataManagement.LoadStudent;
+import dataManagement.LoadStudentCourse;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -106,23 +108,25 @@ public class TestSystemData {
 		}
 		System.out.println("--------------------------------------------------");
 		
-//		System.out.println("-----------Loading Student data-----------");
-//		students = new LoadStudent(degrees, semesters).loadOnSystemStartUp();
-//		for (Entry<Integer, Student> entry : students.entrySet()) {
-//			Student student = entry.getValue();
-//			System.out.println(student.getId()+ ", " + student.getMajor()+ ", " + student.getGradsemester());
-//		}
-//		System.out.println("-------------Student data loaded-----------------");
-//		
-//		System.out.println("-----------Loading StudentCourse data-----------");
-//		studentCourses = new LoadStudentCourse(students, semesters, courses).loadOnSystemStartUp();
-//		for (Entry<String, StudentCourse> entry : studentCourses.entrySet()) {
+                System.out.println("-----------Loading Student data-----------");
+		students = new LoadStudent(degrees, semesters).loadOnSystemStartUp();
+		for (Map.Entry<Integer, Student> entry : students.entrySet()) {
+			Student student = entry.getValue();
+			System.out.println(student.getId()+ ", " + student.getMajor()+ ", " + student.getGradsemester());
+		}
+		System.out.println("Students size= "+students.size());
+		System.out.println("-------------Student data loaded-----------------");
+		
+		System.out.println("-----------Loading StudentCourse data-----------");
+		studentCourses = new LoadStudentCourse(students, semesters, courses).loadOnSystemStartUp();
+//		for (Map.Entry<String, StudentCourse> entry : studentCourses.entrySet()) {
 //			StudentCourse studentCourse = entry.getValue();
 //			System.out.println(studentCourse.getStudent()+ ", " + studentCourse.getCourse()
 //			+ ", " + studentCourse.getCourseName()+ ", " + studentCourse.getSemester()
 //					+ ", " + studentCourse.getGrade());
 //		}
-//		System.out.println("-------------StudentCourse data loaded-----------------");
+		System.out.println("StudentCourses size= "+studentCourses.size());
+		System.out.println("-------------StudentCourse data loaded-----------------");
 		
 	}
 

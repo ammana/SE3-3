@@ -20,7 +20,7 @@ public class PanelHolderFrame extends javax.swing.JFrame {
     public PanelHolderFrame() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         JPanel panel = new LogInPanel(this);
-        setSize(800,470);
+        setSize(800,500);
         setTitle("Login Page");
         getContentPane().removeAll();
         getContentPane().add(panel);

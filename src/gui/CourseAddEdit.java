@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -24,7 +25,9 @@ public class CourseAddEdit extends javax.swing.JPanel {
     SystemData systemData;
     boolean isEdit;
     Course selectedCourse;
-    int source;
+    int source;    
+    DefaultListModel model;
+    
     /**
      * Creates new form ImportStudent
      */
@@ -40,13 +43,16 @@ public class CourseAddEdit extends javax.swing.JPanel {
         
         Object[] prereqArray = systemData.getCourses().keySet().toArray();  
         Object[] teachersArray = systemData.getFaculties().keySet().toArray();
+        model = new DefaultListModel();
+        for(Object course : prereqArray)
+            model.addElement(course);
         
-        prerequisites.setModel(new DefaultComboBoxModel(prereqArray));
+        prerequisites.setModel(model);
         teachers.setModel(new DefaultComboBoxModel(teachersArray));
-//        prerequisites.setVisibleRowCount(2);
-//        teachers.setVisibleRowCount(2);
+        
         if(isEdit){
             jLabel1.setText("Edit Course");
+            model.removeElement(selectedCourse.getCourseCode());
             courseCode.setText(selectedCourse.getCourseCode());
             courseName.setText(selectedCourse.getCourseName());
             courseDescription.setText(selectedCourse.getCourseDescription());
@@ -323,6 +329,11 @@ public class CourseAddEdit extends javax.swing.JPanel {
         
         int courseHoursInt = -1;
         int courseCapInt = -1;
+        if(!isEdit && systemData.getCourses().containsKey(courseCode.getText())){
+                JOptionPane.showMessageDialog(null, "Course with same code already exists!"
+                        + "\nTry with another Course Code.");  
+                return;                
+        } 
         
         try{
             courseHoursInt = Integer.parseInt(courseHours.getText());
@@ -386,12 +397,7 @@ public class CourseAddEdit extends javax.swing.JPanel {
                     courseCapInt, isOfferedInFall.getSelectedItem().equals("Y"),
                     isOfferedInSpring.getSelectedItem().equals("Y"), isOfferedInSummer.getSelectedItem().equals("Y"),
                     preReq,taughtBy);
-            HashMap<String, Course> courses = systemData.getCourses();
-            if(courses.containsKey(courseCode.getText())){
-                JOptionPane.showMessageDialog(null, "Course with same code already exists!"
-                        + "\nTry with another Course Code.");  
-                return;                
-            }  
+            HashMap<String, Course> courses = systemData.getCourses();             
             courses.put(courseCode.getText(), course);
             systemData.setCourses(courses);
             JOptionPane.showMessageDialog(null, "New Course added suceessfully.");

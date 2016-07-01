@@ -169,6 +169,7 @@ public class Faculty
 		this.maxLoadSummer = maxLoadSummer;
 	}
 
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
