@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class ScheduleGenerate extends javax.swing.JPanel {
     JFrame  panelHolder;

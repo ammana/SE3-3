@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class StudentReport extends javax.swing.JPanel {
     JFrame  panelHolder;

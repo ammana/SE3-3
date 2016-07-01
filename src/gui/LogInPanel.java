@@ -5,6 +5,7 @@
  */
 package gui;
 
+import basicClasses.UserProfile;
 import dataManagement.SystemData;
 import java.io.File;
 import java.util.HashMap;
@@ -14,17 +15,19 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class LogInPanel extends javax.swing.JPanel {
     JFrame  panelHolder;
     SystemData systemData;
+    HashMap<String, String> userCredentials;
 
     /**
      * Creates new form LogInPanel
      */
-    public LogInPanel(JFrame  panelHolder) {
+    public LogInPanel(JFrame  panelHolder, HashMap<String, String> userCredentials) {
         this.panelHolder = panelHolder;
+        this.userCredentials = userCredentials;
         initComponents();
     }
 
@@ -131,37 +134,38 @@ public class LogInPanel extends javax.swing.JPanel {
         String userName = this.userName.getText().toLowerCase();
         String password = new String(this.password.getPassword());
         //System.out.println("cur dir = "+System.getProperty("user.dir"));
-        HashMap<String, String> userCredentials = null;
-        try {
-            Scanner sc = new Scanner(new File("data/LoginCredentials.csv"));
-            userCredentials = new HashMap<String, String>();
-            while (sc.hasNextLine()) {
-                Scanner line = new Scanner(sc.nextLine());
-                line.useDelimiter(",\\s");
-                userCredentials.put(line.next().toLowerCase(), line.next());
-                line.close();
-            }
-            sc.close();
+        if(userCredentials == null){
+            try {
+                Scanner sc = new Scanner(new File("data/LoginCredentials.csv"));
+                userCredentials = new HashMap<String, String>();
+                while (sc.hasNextLine()) {
+                    Scanner line = new Scanner(sc.nextLine());
+                    line.useDelimiter(",\\s");
+                    userCredentials.put(line.next().toLowerCase(), line.next());
+                    line.close();
+                }
+                sc.close();     
 
-            //if (true){
-            if (userCredentials.get(userName) != null && userCredentials.get(userName).equals(password)) {
-                //System.out.println(userName  + "=" + password);
-                this.systemData = new SystemData();
-                systemData.load();
-                systemData.setCurrentUser(userName);
-                
-                panelHolder.setTitle("Home Page");
-                panelHolder.getContentPane().removeAll();
-		panelHolder.getContentPane().add(new HomePage(panelHolder, systemData));
-		panelHolder.getContentPane().revalidate();
-            } else {
-                JOptionPane.showMessageDialog(null, "Invalid Login credential. Try again!");
-                this.password.setText("");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Either \"data/LoginCredentials.csv\" file "
+                        + "does not exist or file format is wrong!");
             }
+        }
+        //if (true){
+        if (userCredentials.get(userName) != null && userCredentials.get(userName).equals(password)) {
+            //System.out.println(userName  + "=" + password);
+            this.systemData = new SystemData();
+            systemData.load();
+            systemData.setCurrentUser(new UserProfile(userName, password));                
+            systemData.setUserCredentials(userCredentials);   
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Either \"data/LoginCredentials.csv\" file "
-                    + "does not exist or file format is wrong!");
+            panelHolder.setTitle("Home Page");
+            panelHolder.getContentPane().removeAll();
+            panelHolder.getContentPane().add(new HomePage(panelHolder, systemData, true));
+            panelHolder.getContentPane().revalidate();
+        } else {
+            JOptionPane.showMessageDialog(null, "Invalid Login credential. Try again!");
+            this.password.setText("");
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 

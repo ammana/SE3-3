@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class HomePage extends javax.swing.JPanel {
     JFrame  panelHolder;
@@ -30,10 +30,15 @@ public class HomePage extends javax.swing.JPanel {
      * @param panelHolder
      * @param systemData
      */
-    public HomePage(JFrame  panelHolder, SystemData systemData) {
+    public HomePage(JFrame  panelHolder, SystemData systemData, boolean isFirstLogin) {
         this.panelHolder = panelHolder;
         this.systemData = systemData;        
         initComponents();
+        if(!isFirstLogin){
+            jLabel1.setText("Home Page");
+            jLabel2.setText("");
+        }
+        
         
         JMenuBar menuBar = new JMenuBar();
         panelHolder.setJMenuBar(menuBar);
@@ -75,6 +80,19 @@ public class HomePage extends javax.swing.JPanel {
 		panelHolder.getContentPane().revalidate();        
             }
         });
+        
+        JMenuItem mntmSemester = new JMenuItem("Semester");
+        mnMaintain.add(mntmSemester);
+        mntmSemester.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panelHolder.setTitle("Semester Maintainance");
+                panelHolder.getContentPane().removeAll();
+		panelHolder.getContentPane().add(new SemesterMaintainance(panelHolder, systemData));
+		panelHolder.getContentPane().revalidate();        
+            }
+        });
+                
         
         JMenu mnSchedule = new JMenu("Schedule");
         menuBar.add(mnSchedule);
@@ -165,22 +183,36 @@ public class HomePage extends javax.swing.JPanel {
             }
         });
                 
-        JMenu mnLogout = new JMenu("Logout");
-        menuBar.add(mnLogout);
-        JMenuItem mntmCurUserName = new JMenuItem(systemData.getCurrentUser());
-        mnLogout.add(mntmCurUserName);
-        mntmCurUserName.addActionListener(new ActionListener() {
+        JMenu mnCurUser = new JMenu(systemData.getCurrentUser().getName());
+        menuBar.add(mnCurUser);
+        JMenuItem mntmChangePassword = new JMenuItem("Change Password");
+        mnCurUser.add(mntmChangePassword);
+        mntmChangePassword.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panelHolder.setTitle("Change Password");
+                panelHolder.getContentPane().removeAll();
+		panelHolder.getContentPane().add(new ChangePassword(panelHolder, systemData));
+		panelHolder.getContentPane().revalidate();      
+            }
+        });   
+        
+        JMenuItem mntmLogout = new JMenuItem("Logout");
+        mnCurUser.add(mntmLogout);
+        mntmLogout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 panelHolder.setTitle("Login Page");
                 //panelHolder.removeAll();
                 //panelHolder.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 panelHolder.setJMenuBar(null);
-                panelHolder.getContentPane().removeAll();
-		panelHolder.getContentPane().add(new LogInPanel(panelHolder));
+                panelHolder.getContentPane().removeAll();                                
+		panelHolder.getContentPane().add(new LogInPanel(panelHolder, systemData.getUserCredentials()));
 		panelHolder.getContentPane().revalidate();      
             }
         });       
+        
+             
         
         Object[] gradSchoolCodeArray = systemData.getGradSchools().keySet().toArray();
         String[] gradSchoolName = new String[gradSchoolCodeArray.length];

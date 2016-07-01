@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class ScheduleTest extends javax.swing.JPanel {
     JFrame  panelHolder;

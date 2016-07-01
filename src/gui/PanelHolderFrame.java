@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class PanelHolderFrame extends javax.swing.JFrame {
 
@@ -19,7 +19,7 @@ public class PanelHolderFrame extends javax.swing.JFrame {
      */
     public PanelHolderFrame() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        JPanel panel = new LogInPanel(this);
+        JPanel panel = new LogInPanel(this, null);
         setSize(800,500);
         setTitle("Login Page");
         getContentPane().removeAll();

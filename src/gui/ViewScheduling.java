@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class ViewScheduling extends javax.swing.JPanel {
     JFrame  panelHolder;

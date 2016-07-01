@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Sandeep
+ * @author mounika
  */
 public class CourseAddEdit extends javax.swing.JPanel {
     JFrame  panelHolder;
@@ -410,7 +410,7 @@ public class CourseAddEdit extends javax.swing.JPanel {
         }if(source==1){
             panelHolder.setTitle("Home Page");
             panelHolder.getContentPane().removeAll();
-            panelHolder.getContentPane().add(new HomePage(panelHolder, systemData));
+            panelHolder.getContentPane().add(new HomePage(panelHolder, systemData, false));
             panelHolder.getContentPane().revalidate();
         }
     }//GEN-LAST:event_saveButtonActionPerformed
@@ -424,7 +424,7 @@ public class CourseAddEdit extends javax.swing.JPanel {
         }if(source==1){
             panelHolder.setTitle("Home Page");
             panelHolder.getContentPane().removeAll();
-            panelHolder.getContentPane().add(new HomePage(panelHolder, systemData));
+            panelHolder.getContentPane().add(new HomePage(panelHolder, systemData, false));
             panelHolder.getContentPane().revalidate();
         }        
     }//GEN-LAST:event_cancelButtonActionPerformed

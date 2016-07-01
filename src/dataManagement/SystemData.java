@@ -11,6 +11,7 @@ import basicClasses.GradSchool;
 import basicClasses.Semester;
 import basicClasses.Student;
 import basicClasses.StudentCourse;
+import basicClasses.UserProfile;
 
 public class SystemData {
     private HashMap<String, GradSchool> gradSchools;
@@ -22,7 +23,8 @@ public class SystemData {
     private HashMap<Integer, Student> students ;
     private HashMap<String, StudentCourse> studentCourses;
         
-    private String currentUser;
+    private UserProfile currentUser;
+    private HashMap<String, String> userCredentials;
     private Schedule schedule;
 
    	
@@ -180,12 +182,21 @@ public class SystemData {
     public void setStudentCourses(HashMap<String, StudentCourse> studentCourses) {
         this.studentCourses = studentCourses;
     }
+
+    public HashMap<String, String> getUserCredentials() {
+        return userCredentials;
+    }
+
+    public void setUserCredentials(HashMap<String, String> userCredentials) {
+        this.userCredentials = userCredentials;
+    }  
     
-    public String getCurrentUser() {
+    
+    public UserProfile getCurrentUser() {
         return currentUser;
     }
 
-    public void setCurrentUser(String currentUser) {
+    public void setCurrentUser(UserProfile currentUser) {
         this.currentUser = currentUser;
     }    
     
